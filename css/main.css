@@ -1,0 +1,140 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --base-color:#f88996;
+    --bold-color:#ef3562;
+    --corner-color:#f0394b;
+}
+body{
+    margin: 0;
+}
+@media (max-width:992px){
+    .parent{
+        flex-wrap: wrap;
+    }
+}
+.parent{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.parent .image{
+    width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    position: relative;
+}
+
+.parent .image::before{
+    content: "";
+    width: 350px;
+    height: 250px;
+    border: 10px solid var(--base-color);
+    position: absolute;
+    left: 50px;
+}
+
+.parent .image img{
+    width: 350px;
+    height:210px;
+    z-index: 2;
+    position: absolute;
+    left: -10px;
+}
+
+.text a{
+    margin-left: 50px;
+    text-decoration: none;
+    color: #f33a48;
+    font-weight: 600;
+    position: relative;
+}
+
+.text a::before{
+    content: "";
+    width: 20px;
+    height: 1px;
+    background-color: #f33a48;
+    position: absolute;
+    left: -30px;
+    top: 50%;
+}
+
+.text a::after{
+    content: "";
+    border: 1px solid #f33a48;
+    background-color: transparent;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    left: -33px;
+    top: 35%;
+}
+
+.text p:nth-child(3){
+    line-height: 1.8;
+    opacity: .5;
+}
+
+.text .icons{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.text .icons div{
+    background-color: #ffffff;
+    width: 150px;
+    height: 150px;
+    padding-top: 30px;
+    border: 1px solid #DDD;
+    position: relative;
+    counter-increment: number;
+}
+.text .icons div:first-child img{
+    padding-bottom: 13px;
+}
+
+.text .icons div p{
+    font-weight: 600;
+}
+
+.text .icons div::before{
+    border-color: transparent transparent transparent var(--corner-color);
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    content: "";
+    top: -10px;
+    right: -10px;
+    transform: rotate(-45deg);
+}
+
+.text .icons div::after{
+    content: counter(number);
+    color: #DDD;
+    font-weight: bold;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    opacity: .2;
+    z-index: 1;
+}
+
+.text .icons div img{
+    z-index:3;
+    position: relative;
+}
